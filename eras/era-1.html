@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Era 1: A Fratura - Synesthéra</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Jost:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body id="era-1-page">
+
+    <!-- Véu de Interação com texto customizado para a Era 1 -->
+    <div id="interaction-veil" aria-label="Véu de interação - Era 1">
+        <canvas id="veil-canvas"></canvas>
+        <div id="start-experience-container">
+            <div class="musical-glyph">
+                <div class="glyph-line"></div>
+                <div class="glyph-line"></div>
+            </div>
+            <span class="start-experience-text">O Despertar da Primeira Canção</span>
+        </div>
+    </div>
+
+    <!-- Header Padrão -->
+    <header class="main-header">
+        <nav>
+            <a href="../index.html">Início</a>
+            <a href="../cronologia.html" class="active">As Eras</a>
+            <a href="../forcas-cosmicas.html">Forças Primordiais</a>
+            <a href="../panteao.html">Panteão</a>
+            <a href="../conceitos.html">Conceitos</a>
+        </nav>
+    </header>
+
+    <!-- Container para os fundos dinâmicos -->
+    <div id="era-background-container"></div>
+
+    <!-- Conteúdo Principal da Página -->
+    <main class="era-detail-content content-wrapper">
+        <section class="era-narrative">
+            
+            <!-- Bloco 1: O Evento Catalisador -->
+            <div class="era-text-block" data-bg-image="../images/era1_fratura.jpg">
+                <span class="era-number-detail">Era 1</span>
+                <h1>A Fratura</h1>
+                <h2>O Evento Catalisador</h2>
+                <p>O evento central desta era foi a fratura catastrófica da <a href="../conceitos.html" class="lore-link">Melodia Primordial</a>, um desastre desencadeado pela dor da exclusão de Khaanlur. Impulsionado por seu anseio, Khaanlur forçou sua entrada violenta na realidade, gerando uma <a href="../conceitos.html" class="lore-link">dissonância</a> fundamental — um barulho discordante que iniciou a individualização de todas as consciências.</p>
+            </div>
+
+            <!-- Bloco 2: Consequências Imediatas -->
+            <div class="era-text-block" data-bg-image="../images/era1_emergencia.jpg">
+                <h2>Uma Cascata de Criação e Quebra</h2>
+                <p>Da canção partida, as forças primordiais manifestaram-se como os <a href="../conceitos.html" class="lore-link">Engendradores</a>: Rhôzaia, Cythal e Tháïan. O <a href="../conceitos.html" class="lore-link">Choque Fundamental</a> entre a expansão de Rhôzaia e a ordem de Cythal gerou as estruturas básicas do cosmos: Espaço, Tempo e a <a href="../conceitos.html" class="lore-link">Substância Primordial (ESi )</a>.</p>
+            </div>
+
+            <!-- Bloco 3: As Primeiras Estruturas Cósmicas -->
+            <div class="era-text-block" data-bg-image="../images/era1_oulion.jpg">
+                <h2>As Primeiras Estruturas Cósmicas</h2>
+                <p>A energia da Melodia Fraturada cristalizou-se nos <a href="../conceitos.html" class="lore-link">Quartz Primordiais</a>. No centro do cosmos, formou-se o <a href="../conceitos.html" class="lore-link">Oúliôn</a>, um vórtice vibracional onde <a href="../conceitos.html" class="lore-link">Ninhos Vibracionais</a> gestaram as primeiras grandes consciências: os <a href="../panteao.html#numeninis-primordiais" class="lore-link">Numeninis Primordiais (N¹)</a>.</p>
+            </div>
+
+            <!-- Bloco 4: Os Fragmentados -->
+            <div class="era-text-block" data-bg-image="../images/era1_fragmentados.jpg">
+                <h2>Os Fragmentados</h2>
+                <p>Gestações incompletas ou corrompidas pela dissonância resultaram nos <a href="../conceitos.html" class="lore-link">Fragmentados</a>, seres com Melodias da Alma distorcidas, uma nota de melancolia na criação.</p>
+            </div>
+
+            <!-- Bloco 5: A Tragédia do Diapasão -->
+            <div class="era-text-block" data-bg-image="../images/era1_diapasao.jpg">
+                <h2>A Tragédia do Diapasão</h2>
+                <p>Uma onda de choque abriu uma fissura no Oúliôn, ejetando e estilhaçando o <a href="../conceitos.html" class="lore-link">Diapasão do Oúliôn</a>, a chave de afinação do berço cósmico. Seus fragmentos, os <a href="../conceitos.html" class="lore-link">Ecos do Diapasão</a>, foram espalhados pelo cosmos, carregando uma nota de repouso da harmonia original.</p>
+            </div>
+
+        </section>
+        <div class="back-to-timeline">
+            <a href="../cronologia.html">← Voltar para a Linha do Tempo</a>
+        </div>
+    </main>
+
+    <footer style="background-color: #1a1a1a; position: relative; z-index: 10;">
+        <p>© 2025 - Synesthéra: O Pilar da Realidade — criado por Julíano Luís. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Recursos de áudio (com nome placeholder) e script -->
+    <!-- TODO: o arquivo "../sounds/era1.mp3" não foi encontrado na pasta /sounds.
+        Para habilitar o som desta página, coloque "era1.mp3" em ../sounds/ ou atualize
+        o atributo src para apontar para um arquivo existente/local diferente. -->
+    <audio src="../sounds/era1.mp3" id="page-audio" loop muted></audio>
+    <div id="music-control">🔇</div>
+    <script src="../script.js"></script>
+</body>
+</html>

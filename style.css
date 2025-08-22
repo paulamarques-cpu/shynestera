@@ -1,0 +1,2031 @@
+/* === 1. CONFIGURAÇÕES GERAIS E FONTES === */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #121212;
+    color: #E0E0E0;
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Previne scroll horizontal */
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Cinzel', 'Cinzel Decorative', cursive, serif;
+    font-weight: 700;
+}
+
+strong {
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+blockquote {
+    border-left: 4px solid #8A2BE2;
+    margin: 25px 0;
+    padding: 15px 25px;
+    background-color: rgba(138, 43, 226, 0.05);
+    font-style: italic;
+    color: #ddd;
+}
+
+/* === 2. CORES PADRÃO DAS FORÇAS === */
+.text-rhozaia  { color: #FF007F; } /* Rosa Vibrante */
+.text-cythal   { color: #00C2C2; } /* Teal/Ciano */
+.text-thaian   { color: #8A2BE2; } /* Violeta */
+.text-khaanlur {
+    color: #002d05;
+    text-shadow: 1px 1px 2px rgba(242, 239, 239, 0.7);
+}
+
+/* === 3. COMPONENTES GLOBAIS (Navegação, Cabeçalho, Rodapé) === */
+
+/* --- Cabeçalho Principal (Fixo no Topo) --- */
+.main-header {
+    position: fixed; /* Usar 'fixed' para garantir que ele sempre esteja no topo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 5%; /* Espaçamento interno */
+    background-color: rgba(10, 10, 15, 0.8); /* Fundo escuro semitransparente */
+    backdrop-filter: blur(10px); /* Efeito de vidro fosco */
+    -webkit-backdrop-filter: blur(10px); /* Para compatibilidade com Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Linha sutil na base */
+    z-index: 1000; /* Garante que fique na frente de todo o conteúdo */
+    display: flex;
+    justify-content: center; /* Centraliza a navegação */
+    align-items: center;
+}
+
+/* --- Navegação (CORRIGIDA E CENTRALIZADA) --- */
+.main-header nav {
+    display: flex;
+    gap: 40px; /* Espaço entre os links */
+    max-width: 1200px; /* Limita a largura da navegação */
+    width: 100%; /* Ocupa a largura disponível */
+    justify-content: center; /* Garante que os links fiquem centralizados dentro do nav */
+}
+
+.main-header nav a {
+    font-family: 'Jost', sans-serif; /* Usando a fonte da imagem de referência */
+    color: rgba(255, 255, 255, 0.7); /* Cor padrão (branco sutil) */
+    text-decoration: none; /* Remove o sublinhado */
+    font-size: 1.1em; /* Mantendo o tamanho que você já tinha */
+    font-weight: 400;
+    padding: 10px 5px;
+    position: relative;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Transição suave */
+}
+
+/* Efeito ao passar o mouse */
+.main-header nav a:hover {
+    color: #ff1ac2; /* O link fica branco sólido */
+    text-shadow: 0 0 8px rgba(200, 225, 255, 0.7); /* Brilho sutil */
+}
+
+/* Estilo do link da página ATIVA */
+.main-header nav a.active {
+    color: #7afcff; /* Cor de destaque (azul ciano, como na imagem) */
+    font-weight: 700;
+    text-shadow: 0 0 10px #7afcff; /* Brilho correspondente à cor */
+}
+
+/* Linha decorativa para o link ativo (opcional, mas elegante) */
+.main-header nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Posiciona a linha na parte inferior do link */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%; /* Largura da linha */
+    height: 2px;
+    background-color: #7afcff;
+    border-radius: 2px;
+}
+
+
+/* --- Título das Páginas Internas --- */
+.page-title-header {
+    text-align: center;
+    padding: 60px 20px 40px 20px;
+    background: linear-gradient(180deg, #1a1a1a, #121212);
+}
+
+.page-title-header h1 {
+    font-size: 3.2em;
+    color: #FFFFFF;
+    text-shadow: 0 0 10px #FF007F, 0 0 20px #8A2BE2;
+}
+
+.page-title-header .subtitle {
+    font-size: 1.3em;
+    color: #00BFFF;
+    margin-top: -10px;
+}
+
+/* --- Rodapé --- */
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 60px;
+    background-color: #1a1a1a;
+    color: #777;
+    border-top: 1px solid #333;
+}
+
+/* === 4. PÁGINA INICIAL (index.html) === */
+
+/* --- Fundo de Nebulosa e Efeitos --- */
+#nebula-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+/* --- Seção Hero --- */
+#hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    text-align: center;
+    padding: 0 20px;
+}
+
+#hero h1.pulsing-title {
+    font-size: 4.5em;
+    color: #f0e6ff;
+    margin: 0;
+    animation: pulse-glow 4s infinite ease-in-out;
+}
+@keyframes pulse-glow {
+    0%, 100% { text-shadow: 0 0 10px #8A2BE2, 0 0 20px #8A2BE2, 0 0 30px #FF007F, 0 0 40px #FF007F; }
+    50% { text-shadow: 0 0 20px #9932CC, 0 0 30px #9932CC, 0 0 40px #FF1493, 0 0 50px #FF1493; }
+}
+
+.hero-subtitle {
+    font-size: 1.5em;
+    color: #00BFFF;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+/* --- Seções de Texto (Welcome, Crisis) --- */
+#welcome, #crisis {
+    max-width: 900px;
+    margin: 100px auto;
+    padding: 40px;
+    text-align: center;
+    background-color: rgba(18, 18, 18, 0.7);
+    border-radius: 8px;
+}
+
+.fractured-line {
+    width: 150px; height: 2px;
+    background: linear-gradient(90deg, transparent, #8A2BE2, transparent);
+    margin: 0 auto 40px auto;
+    position: relative;
+}
+.fractured-line::after {
+    content: ''; position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%) rotate(20deg);
+    width: 4px; height: 12px; background-color: rgba(18, 18, 18, 0.7);
+    box-shadow: 0 0 5px rgba(18, 18, 18, 0.7);
+}
+
+#crisis h2 { color: #FF5733; font-size: 2.5em; border: none; }
+
+.cta-button {
+    display: inline-block; padding: 15px 30px; background-color: #8A2BE2;
+    color: #FFFFFF; text-decoration: none; font-size: 1.2em; font-weight: bold;
+    border-radius: 8px; transition: background-color 0.3s, transform 0.3s; margin-top: 20px;
+}
+.cta-button:hover { background-color: #9932CC; transform: scale(1.05); }
+
+/* --- Seção Pilares da Exploração (Cards 2x2) --- */
+#pillars {
+    display: flex; justify-content: center; align-items: center;
+    gap: 40px; flex-wrap: wrap; max-width: 580px; margin: 100px auto;
+}
+
+.pillar-card {
+    background-color: rgba(28, 28, 28, 0.8); border: 1px solid #333;
+    border-radius: 8px; padding: 30px; width: 220px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer; text-decoration: none; color: inherit; display: block;
+}
+.pillar-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(138, 43, 226, 0.2);
+}
+.pillar-icon { font-size: 3em; margin-bottom: 15px; }
+.pillar-card h3 { font-family: 'Cinzel', serif; color: #E0E0E0; margin-bottom: 15px; }
+.pillar-text {
+    color: #aaa; height: 0; opacity: 0; overflow: hidden;
+    transition: height 0.4s ease-out, opacity 0.4s ease-out;
+}
+.pillar-card:hover .pillar-text { height: 80px; opacity: 1; }
+
+/* --- Animação de Scroll --- */
+.scroll-reveal {
+    opacity: 0; transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+
+
+/* === 5. PÁGINA PANTEÃO (panteao.html) === */
+h2 {
+    font-size: 2.2em; color: #FF007F;
+    border-bottom: 2px solid #8A2BE2;
+    padding-bottom: 10px; margin-top: 40px; margin-bottom: 20px;
+}
+
+.numenini-card {
+    background-color: #1a1a1a; border: 1px solid #444;
+    border-radius: 8px; margin-top: 30px; overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+.numenini-header {
+    padding: 20px; background: linear-gradient(135deg, #2a2a2a, #1c1c1c);
+    border-bottom: 1px solid #555;
+}
+.numenini-header h3 { margin: 0; font-size: 1.8em; color: #FFFFFF; }
+.numenini-body { padding: 20px; }
+.numenini-body p { margin-bottom: 15px; }
+
+.lineage-divider {
+    border: 0; height: 1px;
+    background-image: linear-gradient(to right, rgba(51, 51, 51, 0), rgba(51, 51, 51, 0.75), rgba(51, 51, 51, 0));
+    margin: 60px 0;
+}
+.lineage-title {
+    font-family: 'Cinzel Decorative', cursive; font-size: 1.5em;
+    text-align: center; color: #ccc; margin-bottom: 30px;
+}
+
+/* --- Cores dos Títulos e Botões do Panteão --- */
+/* Linhagem Rhôzaia */
+#alvor-aía .numenini-header h3 { color: #FFD1DC; text-shadow: 0 0 8px #FFD700; }
+#kore-aía .numenini-header h3 { color: #98FB98; text-shadow: 0 0 8px #FFB6C1; }
+#rheia-aía .numenini-header h3 { color: #FF7F50; text-shadow: 0 0 8px #FF4500; }
+
+/* Linhagem Cythal */
+#kosmion-thal .numenini-header h3 { color: #00BFFF; text-shadow: 0 0 8px #E0FFFF; }
+#plexus-thal .numenini-header h3 { color: #20C2C2; text-shadow: 0 0 8px #E0FFFF; }
+#noctua-thal .numenini-header h3 { color: #A2A2D0; text-shadow: 0 0 8px #E0FFFF; }
+#akoko-thal .numenini-header h3 { color: #E0E0E0; text-shadow: 0 0 8px #B0E0E6; }
+
+.profile-link {
+    display: inline-block; padding: 10px 20px; color: #FFFFFF;
+    text-decoration: none; font-weight: bold; border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s; margin-top: 10px;
+}
+.profile-link:hover { transform: scale(1.05); }
+
+/* Botões da Linhagem Rhôzaia */
+#alvor-aía .profile-link, #kore-aía .profile-link, #rheia-aía .profile-link { background-color: #D9006C; }
+#alvor-aía .profile-link:hover, #kore-aía .profile-link:hover, #rheia-aía .profile-link:hover { background-color: #B30059; }
+
+/* Botões da Linhagem Cythal */
+#kosmion-thal .profile-link, 
+#plexus-thal .profile-link, 
+#noctua-thal .profile-link, 
+#akoko-thal .profile-link {
+    background-color: #008B8B;
+}
+
+#kosmion-thal .profile-link:hover, 
+#plexus-thal .profile-link:hover, 
+#noctua-thal .profile-link:hover, 
+#akoko-thal .profile-link:hover {
+    background-color: #006868;
+}
+
+
+/* === 6. PÁGINAS DE PERFIL DETALHADO (em panteao/n1/) === */
+.detailed-profile {
+    background-color: #1a1a1a; padding: 30px;
+    border-radius: 8px; border: 1px solid #333;
+}
+.detailed-profile h3 {
+    font-size: 1.6em; border-bottom: 1px solid #444;
+    padding-bottom: 8px; margin-top: 25px;
+}
+.detailed-profile h3 span { margin-right: 10px; }
+.detailed-profile ul { list-style-type: none; padding-left: 0; }
+.detailed-profile ul li { margin-bottom: 10px; padding-left: 1.5em; position: relative; }
+.detailed-profile ul li::before {
+    content: '✨'; position: absolute; left: 0;
+    color: #8A2BE2;
+}
+.back-to-panteao { text-align: center; margin-top: 40px; }
+.back-to-panteao a { color: #00BFFF; text-decoration: none; font-size: 1.1em; }
+
+
+/* === 7. PÁGINA DE CONCEITOS (conceitos.html) === */
+.concept-card {
+    background-color: transparent;
+    border-left: 3px solid;
+    border-image: linear-gradient(to bottom, #8A2BE2, #FF007F) 1;
+    padding: 25px 35px; margin-bottom: 40px;
+    transition: background-color 0.4s;
+}
+.concept-card:hover { background-color: rgba(138, 43, 226, 0.05); }
+.concept-card h2 {
+    font-family: 'Cinzel', serif; font-size: 1.8em;
+    color: #00C2C2; margin-top: 0; margin-bottom: 15px;
+    border-bottom: none; /* Remove a borda padrão do h2 */
+}
+.concept-card p { color: #ccc; line-height: 1.7; }
+
+
+/* === 8. PÁGINA DE CRONOLOGIA (versão imersiva) === */
+.timeline-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.timeline {
+    position: relative;
+    padding: 40px 0;
+}
+
+/* A Corda Melódica Central */
+.melodic-cord {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: #FFD700; /* Cor inicial da Era 0 */
+    transform: translateX(-50%);
+    border-radius: 3px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+    transition: background-color 1s ease, box-shadow 1s ease;
+}
+
+.era-container {
+    position: relative;
+    margin-bottom: 80px;
+    width: 50%;
+    padding: 10px 40px;
+    box-sizing: border-box;
+    opacity: 0; /* Começa invisível para a animação */
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Posicionamento alternado */
+.era-container:nth-child(odd) {
+    left: 0;
+    padding-left: 0;
+}
+
+.era-container:nth-child(even) {
+    left: 50%;
+    padding-right: 0;
+}
+
+/* Animação de entrada */
+.era-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Os Nós do Tempo (Cristais) */
+.timeline-node {
+    position: absolute;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background: #333;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    z-index: 10;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.era-container:nth-child(odd) .timeline-node {
+    right: -10px;
+    transform: translateX(50%);
+}
+
+.era-container:nth-child(even) .timeline-node {
+    left: -10px;
+    transform: translateX(-50%);
+}
+
+.timeline-node:hover {
+    transform: translateX(var(--tx, -50%)) scale(1.2);
+}
+.era-container:nth-child(odd) .timeline-node:hover { --tx: 50%; }
+
+/* Animação de pulso quando o nó está ativo */
+@keyframes pulse-node {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+.timeline-node.active {
+    animation: pulse-node 2s infinite;
+}
+
+/* Os Cartões de Evento */
+.era-card {
+    background: rgba(26, 26, 26, 0.9);
+    border: 1px solid #444;
+    padding: 20px 30px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: box-shadow 0.5s ease;
+}
+
+.era-number {
+    position: absolute;
+    top: 15px;
+    font-family: 'Cinzel', serif;
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.3);
+}
+.era-container:nth-child(odd) .era-number { right: 30px; }
+.era-container:nth-child(even) .era-number { left: 30px; }
+
+.era-card h2 {
+    margin-top: 0;
+    color: #E0E0E0;
+    font-size: 1.7em;
+    border: none;
+}
+
+.era-card p {
+    color: #aaa;
+    font-size: 0.95em;
+}
+
+
+/* =======================================================
+   === 9. PÁGINA FORÇAS CÓSMICAS (VERSÃO DE BACKUP - ESTÁVEL E CORRIGIDA) ===
+   ======================================================= */
+
+/* Adiciona um espaçamento no topo do conteúdo para não ficar atrás do header */
+/* Este seletor é para o <main> na página de forças, que tem a classe .content-wrapper */
+main.content-wrapper {
+    padding-top: 75px; /* Ajuste este valor se a altura do seu header for diferente */
+    max-width: none; /* Remove a limitação de largura para ocupar a tela toda */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo base para TODAS as seções de força */
+.force-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #333;
+}
+
+/* Canvas de fundo para os efeitos */
+.force-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Conteúdo de texto e imagem de cada seção */
+.force-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 2rem 3rem;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+}
+
+/* Símbolos, títulos e textos */
+.force-symbol { max-width: 150px; margin-bottom: 1rem; }
+.force-content h2 { font-family: 'Cinzel', serif; font-size: 3rem; margin: 0.5rem 0; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); border: none; }
+.force-content h3 { font-family: 'Lato', sans-serif; font-weight: 400; font-size: 1.2rem; margin-bottom: 1rem; color: #ccc; }
+.force-content p { font-family: 'Lato', sans-serif; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem; }
+.force-link { display: inline-block; margin-top: 20px; padding: 12px 25px; border: 2px solid #fff; color: #fff; text-decoration: none; font-weight: bold; border-radius: 5px; transition: background-color 0.3s, color 0.3s; }
+
+/* Cores de fundo de fallback */
+#rhozaia-section { background-color: #3d0f24; }
+#cythal-section { background-color: #0b343d; }
+#thaian-section { background-color: #2c1a4c; }
+#khaanlur-section { background-color: #1a1a1a; }
+
+/* Efeitos de hover nos links */
+#rhozaia-section .force-link:hover { background-color: hotpink; border-color: hotpink; }
+#cythal-section .force-link:hover { background-color: #00FFFF; border-color: #00FFFF; color: #000; }
+#thaian-section .force-link:hover { background-color: #8A2BE2; border-color: #8A2BE2; }
+#khaanlur-section .force-link:hover { background-color: #5a5a36; border-color: #5a5a36; }
+
+
+/* ==================================================
+   === 10. ESTILOS PARA IMAGENS DE PERFIL ===
+   ================================================== */
+
+.profile-image-container {
+    width: 100%;
+    max-height: 400px; /* Altura máxima para a imagem */
+    margin-bottom: 40px;
+    border-radius: 8px;
+    overflow: hidden; /* Garante que a imagem fique dentro das bordas arredondadas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111; /* Fundo escuro para o placeholder */
+    border: 1px solid #444;
+}
+
+.profile-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem cobrir o container sem distorcer */
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.profile-image-container:hover img {
+    transform: scale(1.05); /* Efeito de zoom sutil ao passar o mouse */
+    filter: brightness(1.1); /* Deixa a imagem um pouco mais brilhante */
+}
+
+/* Estilo para o texto do placeholder (pode remover depois) */
+.image-placeholder-text {
+    color: #555;
+    font-family: 'Cinzel', serif;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .force-content h2 { font-size: 2em; }
+    .force-content h3 { font-size: 1.1em; }
+    .force-content p { font-size: 1em; }
+    
+    .timeline-wrapper {
+        max-width: 100%;
+    }
+    
+    .melodic-cord {
+        left: 30px;
+    }
+
+    .era-container,
+    .era-container:nth-child(even) {
+        width: 100%;
+        left: 0;
+        padding-left: 80px;
+        padding-right: 20px;
+    }
+
+    .timeline-node,
+    .era-container:nth-child(even) .timeline-node {
+        left: 30px;
+        transform: translateX(-50%);
+    }
+    .timeline-node:hover { --tx: -50%; }
+}
+/* ==================================================
+   === 11. ESTILOS PARA A SEÇÃO RHÔZAIA (CORRIGIDO) ===
+   ================================================== */
+
+/* Posiciona o canvas de Rhôzaia no fundo da seção */
+#rhozaia-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Canvas fica no fundo */
+}
+
+/* Remove o fundo de gradiente antigo da seção Rhôzaia */
+#rhozaia-bg {
+    background: none; 
+}
+
+/* CORREÇÃO DE LAYOUT: Usa Flexbox para centralizar perfeitamente */
+#rhozaia-content {
+    z-index: 1; /* Garante que o conteúdo fique sobre o canvas */
+    display: flex;
+    flex-direction: column; /* Organiza os itens em uma coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    max-width: 700px;
+    padding: 20px;
+    text-align: center; /* Garante que o texto dentro também se alinhe ao centro */
+}
+
+/* Estilo para o ícone de espiral pulsante */
+#rhozaia-content .heartbeat-icon {
+    margin-bottom: 20px;
+    animation: heartbeat 2.5s infinite ease-in-out;
+}
+
+#rhozaia-content .heartbeat-icon img {
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(0 0 10px hotpink);
+    transition: transform 0.3s ease;
+}
+
+#rhozaia:hover .heartbeat-icon img {
+    transform: scale(1.1);
+}
+
+/* Animação de batimento cardíaco para o ícone */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    10% { transform: scale(1.1); }
+    15% { transform: scale(1); }
+    25% { transform: scale(1.15); }
+    35% { transform: scale(1); }
+    100% { transform: scale(1); }
+}
+/* ==================================================
+   === 12. ESTILOS PARA A PÁGINA DE PERFIL DE THÁÏAN (VERSÃO CORRIGIDA) ===
+   ================================================== */
+
+body.thaian-profile-page {
+    overflow-y: auto;
+    background-color: #0c0a14;
+    color: #f0f0f0;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+#harmony-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: filter 1.5s ease-in-out;
+}
+
+#harmony-canvas.pulsing {
+    filter: brightness(130%);
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column; /* <--- CORRIGIDO */
+    align-items: center;
+    /* ... resto do código ... */
+}
+
+
+@keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-image-wrapper {
+    width: 300px;
+    max-width: 80%;
+    margin-bottom: 3rem;
+    animation: float-gently 8s infinite ease-in-out;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(192, 192, 192, 0.3);
+    box-shadow: 0 0 25px rgba(138, 43, 226, 0.5);
+}
+
+.profile-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.profile-image-wrapper:hover img {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+@keyframes float-gently {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+/* CORREÇÃO DO TEXTO BORRADO: Removido o text-shadow genérico */
+.content-container h1 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    /* Adicionado um brilho mais nítido apenas ao título principal */
+    text-shadow: 0 0 15px rgba(220, 200, 255, 0.7);
+}
+
+.content-container h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #C0C0C0;
+    margin-top: 0.5rem;
+}
+
+.profile-section {
+    max-width: 700px;
+    margin: 40px 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.content-container.confluence-active .profile-section:not(:hover) {
+    opacity: 0.6;
+}
+
+.profile-section h3 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #C0C0C0;
+}
+
+.profile-section p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+    margin-bottom: 1rem;
+}
+
+.keyword {
+    color: #f0f0f0;
+    font-weight: 700;
+    transition: color 1s ease-out, text-shadow 1s ease-out;
+}
+
+.keyword.glowing {
+    color: #FFFFFF;
+    text-shadow: 0 0 15px #FFFFFF;
+}
+
+.text-khaanlur {
+    color: #FF5733;
+    animation: text-glitch 3s infinite steps(1);
+}
+
+@keyframes text-glitch {
+    0%, 100% { text-shadow: 1px 1px #8A2BE2, -1px -1px #00C2C2; }
+    25% { text-shadow: -1px 1px #8A2BE2, 1px -1px #00C2C2; }
+    50% { text-shadow: 1px -1px #8A2BE2, -1px 1px #00C2C2; }
+    75% { text-shadow: -1px -1px #8A2BE2, 1px 1px #00C2C2; }
+}
+
+.content-container .cta-button {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #f0f0f0;
+    padding: 12px 24px;
+    border: 1px solid #8A2BE2;
+    border-radius: 50px;
+    transition: background-color 0.4s, color 0.4s, box-shadow 0.4s;
+    margin-top: 40px;
+}
+
+.content-container .cta-button:hover {
+    background-color: #8A2BE2;
+    color: #fff;
+    box-shadow: 0 0 20px #8A2BE2;
+}
+
+/* Garante estilo consistente para <strong> dentro de .profile-section */
+.profile-section p strong {
+    font-weight: 700;
+    color: inherit; /* Use inherit por padrão; sobrescreva por página se necessário (ex.: body.thaian-profile-page .profile-section p strong { color: #fff }) */
+}
+
+/* ==================================================
+   === 13. APRIMORAMENTOS VISUAIS ADICIONAIS ===
+   ================================================== */
+
+/* --- Estilos para os Canvas de Fundo --- */
+#rhozaia-canvas, #cythal-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Fica atrás do conteúdo de texto */
+}
+
+/* Remove o fundo antigo de Cythal para dar lugar ao canvas */
+#cythal-bg {
+    background: #010c13; /* Mantém uma cor base escura */
+}
+
+/* --- Estilização de Texto Especial --- */
+
+/* Faz o nome de Tháïan pulsar com um brilho entrelaçado */
+.text-thaian {
+    color: #8A2BE2; /* Cor base violeta */
+    animation: thaian-pulse 4s infinite ease-in-out;
+}
+
+@keyframes thaian-pulse {
+    0%, 100% {
+        text-shadow: 0 0 5px #C0C0C0, 0 0 10px #8A2BE2;
+    }
+    50% {
+        text-shadow: 0 0 10px #FFFFFF, 0 0 20px #A080D0;
+    }
+}
+
+/* regra consolidada acima cobre este caso */
+/* ============================================= */
+/* == Perfil Imersivo: Rhôzaia == */
+/* ============================================= */
+
+/* Estilo aplicado apenas ao body da página da Rhôzaia */
+#rhozaia-profile-body {
+    background-color: #1a0812; /* Um fundo escuro com tom avermelhado para começar */
+    color: #fdeff5; /* Cor de texto principal, um branco-rosado suave */
+    overflow-x: hidden; /* Previne scroll horizontal */
+}
+
+.profile-container-rhozaia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 2rem;
+    gap: 4rem;
+    min-height: 80vh;
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Coluna da esquerda para a imagem */
+.profile-visual {
+    flex: 0 0 40%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+
+/* A imagem principal da espiral */
+.rhozaia-symbol-art {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #ff5c9a, 0 0 30px #ff5c9a, 0 0 45px #e60073, 0 0 60px #e60073;
+    
+    /* Animação de pulsação sutil (específica de Rhôzaia) */
+    animation: heartbeat-rhozaia 4s ease-in-out infinite;
+}
+
+/* Legenda abaixo da imagem */
+.image-subtitle {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.2rem;
+    color: #ffb3d1;
+    margin-top: 1.5rem;
+    text-shadow: 0 0 5px #ff5c9a;
+}
+
+/* Coluna da direita para o texto */
+.profile-content {
+    flex: 1; /* Ocupa o espaço restante */
+}
+
+/* Títulos e subtítulos no perfil */
+.profile-title {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 4rem;
+    color: #ff80b9;
+    text-shadow: 0 0 10px #ff5c9a;
+    margin-bottom: 0.5rem;
+}
+
+.profile-subtitle {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+    color: #ffb3d1;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+/* Estilo geral para parágrafos e listas no perfil */
+.profile-content p, .profile-content ul {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.profile-content h3 {
+    font-family: 'Cinzel Decorative', cursive;
+    color: #ffb3d1;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-left: 3px solid #ff5c9a;
+    padding-left: 1rem;
+}
+
+.profile-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.profile-content li {
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+/* Adiciona um marcador de lista customizado com a cor de Rhôzaia */
+.profile-content li::before {
+    content: '•';
+    color: #ff5c9a;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+/* Citação estilizada */
+.profile-quote {
+    border-left: 4px solid #ff80b9;
+    padding-left: 2rem;
+    margin: 3rem 0;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #fdeff5;
+    text-shadow: 0 0 5px #ff5c9a;
+}
+
+/* Animação de pulsação para a imagem (específica de Rhôzaia) */
+@keyframes heartbeat-rhozaia {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 15px #ff5c9a, 0 0 30px #ff5c9a, 0 0 45px #e60073, 0 0 60px #e60073;
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 25px #ff80b9, 0 0 50px #ff80b9, 0 0 75px #e60073, 0 0 100px #e60073;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px #ff5c9a, 0 0 30px #ff5c9a, 0 0 45px #e60073, 0 0 60px #e60073;
+    }
+}
+/* Estilo para o Canvas do perfil da Rhôzaia */
+#rhozaia-profile-canvas {
+    position: fixed; /* Fica fixo na tela, mesmo com scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* <<< IMPORTANTE: Coloca o canvas atrás de todo o conteúdo */
+}
+/* ============================================= */
+/* == Passo 3: Interatividade Perfil Rhôzaia == */
+/* ============================================= */
+
+/* Efeito de hover para a imagem principal */
+.rhozaia-symbol-art:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #ff80b9, 0 0 55px #ff80b9, 0 0 85px #e60073, 0 0 120px #e60073;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+
+/* Estilo para o rastro do cursor (VERSÃO FINAL E SUTIL) */
+.cursor-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px; /* Tamanho menor */
+    height: 6px; /* Tamanho menor */
+    background-color: rgba(255, 220, 185, 0.5); /* Cor original, semitransparente */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999; /* Mantém na frente */
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transição mais suave e elástica */
+    filter: blur(1px); /* Desfoque para um efeito mais macio */
+}
+/* Controle de Música */
+#music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10000;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+#music-control:hover {
+    opacity: 1;
+}
+
+/* ============================================= */
+/* == Perfil Imersivo: Tháïan (Layout Novo ) == */
+/* ============================================= */
+
+#thaian-profile-body {
+    background-color: #080210; /* Um violeta muito escuro, quase preto */
+    color: #e9dffc; /* Mantém o texto principal claro */
+    overflow-x: hidden;
+}
+.text-thaian {
+    color: #D4A7FF; /* Um violeta vibrante */
+    text-shadow: 0 0 5px #a972ff, 0 0 10px #a972ff;
+}
+
+
+/* Container principal para o layout de Tháïan */
+.profile-container-thaian {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 2rem;
+    gap: 4rem;
+    min-height: 80vh;
+    position: relative; /* Garante o empilhamento correto */
+    z-index: 2;
+}
+
+/* Estilos para a arte de Tháïan na coluna da esquerda */
+.thaian-art {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #a972ff, 0 0 30px #7c3aed;
+    border: 2px solid rgba(170, 114, 255, 0.5);
+}
+
+/* Reutilizando e adaptando estilos de perfil */
+#thaian-profile-body .profile-visual {
+    flex: 0 0 40%;
+    text-align: center;
+}
+
+#thaian-profile-body .profile-content {
+    flex: 1;
+}
+
+#thaian-profile-body .profile-title {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 4rem;
+    color: #c79eff;
+    text-shadow: 0 0 10px #a972ff;
+    margin-bottom: 0.5rem;
+}
+
+#thaian-profile-body .profile-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: #d8c2ff;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+#thaian-profile-body .profile-content p, 
+#thaian-profile-body .profile-content ul {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+}
+
+#thaian-profile-body .profile-content h3 {
+    font-family: 'Cinzel Decorative', cursive;
+    color: #c79eff;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-left: 3px solid #a972ff;
+    padding-left: 1rem;
+}
+
+#thaian-profile-body .profile-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#thaian-profile-body .profile-content li::before {
+    content: '✧';
+    color: #a972ff;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: 0px;
+}
+
+#thaian-profile-body .image-subtitle {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.2rem;
+    color: #d8c2ff;
+    margin-top: 1.5rem;
+    text-shadow: 0 0 5px #a972ff;
+}
+/* ============================================= */
+/* == Perfil Imersivo: Cythal == */
+/* ============================================= */
+
+#cythal-profile-body {
+    background-color: #011015; /* Azul-petróleo muito escuro */
+    color: #cceefc; /* Ciano muito claro */
+    overflow-x: hidden;
+}
+
+#cythal-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.profile-container-cythal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 2rem;
+    gap: 4rem;
+    min-height: 80vh;
+    position: relative;
+    z-index: 2;
+}
+
+.cythal-symbol {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    filter: drop-shadow(0 0 15px #00e5ff ); /* Efeito de brilho ciano */
+    animation: float 6s ease-in-out infinite; /* Animação de flutuação */
+}
+
+/* Reutilizando e adaptando estilos de perfil para Cythal */
+#cythal-profile-body .profile-visual {
+    flex: 0 0 40%;
+    text-align: center;
+}
+
+#cythal-profile-body .profile-content {
+    flex: 1;
+}
+
+#cythal-profile-body .profile-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    color: #00e5ff;
+    text-shadow: 0 0 10px #00e5ff;
+    margin-bottom: 0.5rem;
+}
+
+#cythal-profile-body .profile-subtitle {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.3rem;
+    color: #9fecff;
+    margin-bottom: 2rem;
+}
+
+#cythal-profile-body .profile-content p, 
+#cythal-profile-body .profile-content ul {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+#cythal-profile-body .profile-content h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00e5ff;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-left: 3px solid #00e5ff;
+    padding-left: 1rem;
+}
+
+#cythal-profile-body .profile-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#cythal-profile-body .profile-content li::before {
+    content: '>';
+    color: #00e5ff;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+
+#cythal-profile-body .image-subtitle {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    color: #9fecff;
+    margin-top: 1.5rem;
+    text-shadow: 0 0 5px #00e5ff;
+}
+
+/* Animação de flutuação para o símbolo */
+@keyframes float {
+	0% { transform: translateY(0px); }
+	50% { transform: translateY(-20px); }
+	100% { transform: translateY(0px); }
+}
+/* ============================================= */
+/* == Perfil Imersivo: Khaanlur (SOLUÇÃO DE ROLAGEM ) == */
+/* ============================================= */
+
+#khaanlur-profile-body {
+    background-color: #000;
+    color: #a3b8a5;
+    font-family: 'Share Tech Mono', monospace;
+    /* REMOVEMOS O OVERFLOW DAQUI */
+}
+
+/* NOVO: Estilo para o container de rolagem */
+.scroll-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* A rolagem vertical acontece AQUI */
+    overflow-x: hidden; /* E a horizontal continua bloqueada */
+    z-index: 10; /* Garante que fique na frente do canvas */
+}
+
+/* Canvas único para todos os efeitos */
+#khaanlur-corruption-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1; /* Fica no fundo */
+}
+
+/* Layout de Duas Colunas */
+.profile-container-khaanlur {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 2rem;
+    gap: 4rem;
+    min-height: 80vh;
+}
+
+/* Símbolo com brilho verde */
+.khaanlur-symbol-profile {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    filter: drop-shadow(0 0 15px #0f0);
+}
+
+/* Efeito Glitch no hover */
+.glitch-text { position: relative; }
+.glitch-text:hover::before {
+    content: attr(data-text);
+    position: absolute; top: 0; left: 2px;
+    width: 100%; height: 100%;
+    text-shadow: -2px 0 #0f0;
+    overflow: hidden;
+    background: #000;
+    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+/* Animação de Glitch (Simplificada) */
+@keyframes glitch-anim-1 {
+  0% { clip: rect(42px, 9999px, 44px, 0); }
+  10% { clip: rect(12px, 9999px, 64px, 0); }
+  20% { clip: rect(82px, 9999px, 90px, 0); }
+  30% { clip: rect(4px, 9999px, 16px, 0); }
+  40% { clip: rect(88px, 9999px, 94px, 0); }
+  50% { clip: rect(45px, 9999px, 55px, 0); }
+  60% { clip: rect(70px, 9999px, 75px, 0); }
+  70% { clip: rect(20px, 9999px, 28px, 0); }
+  80% { clip: rect(80px, 9999px, 85px, 0); }
+  90% { clip: rect(10px, 9999px, 19px, 0); }
+  100% { clip: rect(50px, 9999px, 58px, 0); }
+}
+
+/* Estilização do conteúdo com a nova paleta */
+#khaanlur-profile-body .profile-visual { flex: 0 0 40%; text-align: center; }
+#khaanlur-profile-body .profile-content { flex: 1; }
+
+#khaanlur-profile-body .profile-title {
+    font-family: 'VT323', monospace;
+    font-size: 4rem;
+    color: #d9ffd9;
+}
+#khaanlur-profile-body .profile-subtitle {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.3rem;
+    color: #5c705c;
+    margin-bottom: 2rem;
+}
+#khaanlur-profile-body .profile-content h3 {
+    font-family: 'VT323', monospace;
+    font-size: 1.8rem;
+    color: #d9ffd9;
+    border-left: 3px solid #0a300a;
+    padding-left: 1rem;
+    margin-top: 2rem;
+}
+#khaanlur-profile-body .text-khaanlur {
+    color: #5cff5c;
+    text-shadow: 0 0 8px #0f0;
+    font-weight: bold;
+}
+#khaanlur-profile-body .image-subtitle {
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    color: #5c705c;
+    margin-top: 1.5rem;
+}
+/* Corrige a cor do link "Voltar" em Khaanlur */
+#khaanlur-profile-body .back-to-panteao a {
+    color: #a3b8a5; /* Mesma cor do texto principal */
+}
+/* 8.0 - PÁGINA DINÂMICA CÓSMICA */
+/* ------------------------------------------- */
+
+/* Layout geral da página */
+#dinamica-page {
+    color: #eee;
+    text-align: center;
+    padding: 120px 5% 5%; /* Espaço para o header fixo e margens laterais */
+    overflow-x: hidden;
+}
+
+#dinamica-overlay {
+    position: fixed; /* Fica fixo na tela inteira */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo preto semitransparente */
+    backdrop-filter: blur(5px); /* Desfoca o que está atrás */
+    z-index: 5; /* Fica acima do conteúdo da página, mas abaixo do card */
+    opacity: 0;
+    pointer-events: none; /* Não pode ser clicado por padrão */
+    transition: opacity 0.4s ease-in-out;
+        pointer-events: none; /* Garante que o overlay nunca seja clicável */
+
+}
+
+#dinamica-page .intro-section,
+#dinamica-page .analysis-section {
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    text-align: left;
+}
+
+#dinamica-page .intro-section h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#dinamica-page .intro-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+    color: #ccc;
+}
+
+/* Hub Interativo */
+#dinamica-container {
+    position: relative;
+    width: 100%;
+    min-height: 60vh; /* Altura para dar espaço aos elementos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+#interaction-hub {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Transição suave */
+}
+
+/* Estilo base para os nós das forças */
+.force-node {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.force-node h4 {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    opacity: 0; /* Esconde o texto por padrão */
+    transition: opacity 0.3s ease;
+}
+
+.force-node:hover h4 {
+    opacity: 1; /* Mostra o texto no hover */
+}
+
+/* Posicionamento e imagem de cada nó */
+#khaanlur-node {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('images/khaanlur.png');
+    width: 150px; /* Um pouco maior para destaque */
+    height: 150px;
+}
+
+#khaanlur-node h4, #khaanlur-node span {
+    opacity: 1; /* Texto de Khaanlur sempre visível */
+    font-size: 0.8rem;
+}
+#khaanlur-node h4 {
+    font-size: 1.2rem;
+}
+
+
+#rhozaia-node {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url('images/rhozaia-symbol.png');
+}
+
+#cythal-node {
+    bottom: 0;
+    left: 20%;
+    transform: translateX(-50%);
+    background-image: url('images/cythal-symbol.png');
+}
+
+#thaian-node {
+    bottom: 0;
+    right: 20%;
+    transform: translateX(50%);
+    background-image: url('images/thaian-symbol.png');
+}
+
+.force-node.interactive {
+    cursor: pointer;
+}
+
+.force-node.interactive:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px #fff);
+}
+
+
+/* Encontre esta regra no seu CSS: */
+
+.interaction-card {
+    /* display: none; <-- REMOVA ESTA LINHA */
+    opacity: 0; /* Começa invisível */
+    pointer-events: none; /* E não-interativo */
+    transform: translate(-50%, -50%) scale(0.9); /* Começa um pouco menor */
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Transição suave */
+    
+    position: fixed; /* Fixo na tela para ficar sobre o overlay */
+    top: 50%;
+    left: 50%;
+    z-index: 10; /* Fica na frente de tudo */
+
+    background-color: rgba(10, 10, 20, 0.85);
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 600px;
+    width: 90%; /* Garante que não fique muito grande em telas menores */
+    text-align: left;
+    max-width: 550px; /* Reduzindo um pouco a largura */
+    width: 90%;
+    max-height: 70vh; /* Define uma altura máxima (70% da altura da tela) */
+    overflow-y: auto; /* Adiciona uma barra de rolagem vertical APENAS se necessário */
+    padding: 20px 35px; /* Ajustando o padding para a rolagem */
+}
+
+
+.interaction-card h2 {
+    font-family: 'Orbitron', sans-serif;
+    margin-top: 0;
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Cores específicas para os títulos dos cards */
+#aialur h2 { color: #ff8fab; border-color: #ff8fab; } /* Rosa de Rhôzaia */
+#thallur h2 { color: #7afcff; border-color: #7afcff; } /* Azul de Cythal */
+#thailur h2 { color: #e1a7ff; border-color: #e1a7ff; } /* Roxo de Tháïan */
+
+.interaction-card h3 {
+    color: #ccc;
+    margin-top: 25px;
+}
+
+.interaction-card p {
+    line-height: 1.7;
+    color: #bbb;
+}
+
+/* Seção de Análise */
+.analysis-section {
+    padding-top: 40px;
+    border-top: 1px solid #333;
+}
+
+.analysis-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.analysis-section h3 {
+    color: #eee;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+/* ADICIONE estas novas regras no final da seção */
+
+/* Quando um card estiver ativo... */
+#dinamica-container.card-active #dinamica-overlay {
+    opacity: 1; /* O overlay aparece */
+    pointer-events: auto; /* E pode ser clicado para fechar */
+}
+
+#dinamica-container.card-active #interaction-hub {
+    opacity: 0; /* O hub de símbolos desaparece */
+    transform: scale(0.9);
+    pointer-events: none;
+}
+
+#dinamica-container.card-active .interaction-card.visible {
+    opacity: 1; /* O card selecionado aparece */
+    pointer-events: auto; /* E se torna interativo */
+    transform: translate(-50%, -50%) scale(1); /* E cresce para o tamanho normal */
+}
+/* === SEÇÃO DE LINK PARA PRÓXIMA PÁGINA === */
+.next-step-section {
+    padding: 80px 20px;
+    background-color: #101010; /* Um fundo ligeiramente diferente para destacar */
+    text-align: center;
+}
+
+.next-step-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.next-step-content h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: #fff;
+    border: none; /* Remove a borda padrão do h2 */
+    margin-bottom: 20px;
+}
+
+.next-step-content p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 40px;
+}
+
+/* Reutilizando o estilo do botão de Call to Action que você já tem */
+.next-step-content .cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #8A2BE2; /* Cor de Tháïan, sugerindo síntese */
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.next-step-content .cta-button:hover {
+    background-color: #9932CC;
+    transform: scale(1.05);
+}
+/* ==================================================
+   === PÁGINA DE DETALHE DAS ERAS (Layout Dinâmico) ===
+   ================================================== */
+
+#era-background-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
+}
+
+.era-background-image {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; /* Transição de fade longa e suave */
+}
+
+.era-background-image.active {
+    opacity: 1;
+}
+
+.era-detail-content {
+    position: relative;
+    z-index: 1;
+}
+
+.era-narrative .era-text-block {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+    color: #fff;
+    position: relative; /* Necessário para o pseudo-elemento de fundo */
+}
+.era-text-block p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #E0E0E0; /* Cor do texto clara e legível */
+    
+    /* O BLOCO DE FUNDO RESTAURADO E MELHORADO */
+    background-color: rgba(10, 10, 15, 0.8); /* Fundo escuro, mais opaco */
+    backdrop-filter: blur(5px); /* Efeito de vidro fosco para desfocar o fundo */
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil para definição */
+    text-align: left; /* Garante que o texto dentro do bloco seja alinhado à esquerda */
+}
+.era-text-block .era-number-detail {
+    font-family: 'Jost', sans-serif; /* Fonte limpa e moderna */
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7); /* Branco suave, não gritante */
+    letter-spacing: 5px; /* Efeito cinematográfico de espaçamento */
+    text-transform: uppercase; /* Deixa o texto em maiúsculas: "ERA 0" */
+    margin-bottom: 20px; /* Espaço entre ele e o título principal */
+    
+    /* Remove qualquer estilo de "tag" que possa ter sido herdado */
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+}
+
+
+.era-text-block h1, .era-text-block h2 {
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    padding: 0 25px; /* Alinha com o padding do parágrafo */
+}
+
+.era-text-block h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    transition: color 0.5s, text-shadow 0.5s; /* Anima a mudança de cor */
+}
+
+/* --- A Corrupção Progressiva dos Títulos --- */
+
+/* Bloco 1 e 2: A Pureza da Criação */
+[data-bg-image*="vazio"] h2,
+[data-bg-image*="criacao"] h2 {
+    color: #FFD700; /* Dourado puro */
+    text-shadow: 0 0 15px #FFD700;
+}
+
+/* Bloco 3: A Tragédia e a Dissonância (ESTADO NORMAL) */
+[data-bg-image*="tragedia"] h2 {
+    color: #023b15;
+    text-shadow: 0 0 10px #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* Bloco 3: A Tragédia e a Dissonância (EFEITO GLITCH NO HOVER) */
+/* QUANDO O MOUSE ESTIVER SOBRE O BLOCO INTEIRO, ANIME O H2 DENTRO DELE */
+.era-text-block[data-bg-image*="tragedia"]:hover h2 {
+    animation: glitch-effect 0.8s infinite;
+}
+
+/* Bloco 4: O Resultado Final */
+[data-bg-image*="panteao"] h2 {
+    color: #a3b8a5;
+    text-shadow: 0 0 15px #ffffff;
+}
+/* Animação de Glitch para o Título */
+
+@keyframes glitch-effect {
+    0% { text-shadow: 1px 1px #FF5733, -1px -1px #00C2C2; }
+    25% { text-shadow: -1px 1px #FF5733, 1px -1px #00C2C2; transform: translate(-1px, 1px); }
+    50% { text-shadow: 1px -1px #FF5733, -1px 1px #00C2C2; transform: translate(1px, -1px); }
+    75% { text-shadow: -1px -1px #FF5733, 1px 1px #00C2C2; transform: translate(1px, 1px); }
+    100% { text-shadow: 1px 1px #FF5733, -1px -1px #00C2C2; transform: translate(-1px, -1px); }
+}
+
+/* Container para o link de "Voltar" */
+.back-to-timeline {
+    text-align: center;
+    padding: 60px 20px 80px 20px;
+    background-color: transparent; /* Garante que não tenha um fundo branco */
+    position: relative;
+    z-index: 5; /* Garante que fique na frente do fundo */
+}
+
+/* Estilo do próprio link "Voltar" */
+.back-to-timeline a {
+    font-family: 'Lato', sans-serif;
+    color: #FFD700; /* Cor dourada para combinar com os títulos da Era 0 */
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: 2px solid #FFD700;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Efeito ao passar o mouse sobre o link "Voltar" */
+.back-to-timeline a:hover {
+    background-color: #FFD700;
+    color: #121212; /* O texto fica escuro para contrastar com o fundo dourado */
+}
+/* ==================================================
+   === VÉU DE INTERAÇÃO TEMÁTICO (VERSÃO FINAL) ===
+   ================================================== */
+
+#interaction-veil {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #050208; /* Um roxo/preto muito escuro */
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 1.2s ease-out;
+}
+
+/* Tema Rhôzaia: véu rosa com espiral central */
+.rhozaia-veil {
+    background-color: rgba(18, 6, 12, 0.95); /* base escura para deixar rosa vibrante perceptível */
+}
+
+.rhozaia-veil #start-experience-container {
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rhozaia-veil .rhozaia-symbol-art {
+    width: 140px;
+    height: auto;
+    filter: drop-shadow(0 0 25px #ff80b9);
+    border-radius: 50%;
+    animation: heartbeat-rhozaia 4s ease-in-out infinite;
+}
+
+.rhozaia-veil .start-experience-text {
+    color: #ffb3d1;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* Tema Cythal: véu tecnológico ciano */
+.cythal-veil {
+    background: linear-gradient(180deg, rgba(1,16,21,0.95), rgba(0,20,30,0.95));
+}
+.cythal-veil #start-experience-container {
+    flex-direction: column;
+}
+.cythal-veil .start-experience-text {
+    color: #9fecff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.05rem;
+}
+
+/* Uniform veil symbol sizing to match Rhôzaia and Khaanlur */
+.cythal-veil .cythal-symbol-profile,
+.thaian-veil .thaian-symbol-profile,
+.khaanlur-veil .khaanlur-symbol-profile {
+    width: 140px;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(255,255,255,0.12));
+    border-radius: 50%;
+}
+
+.start-experience-text {
+    font-size: 1.1rem;
+    letter-spacing: 0.6px;
+}
+
+#veil-canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+}
+
+#start-experience-container {
+    position: relative; /* Para posicionar as linhas de cor */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* O Glifo Musical (parecido com um diapasão) */
+.musical-glyph {
+    width: 60px;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    animation: pulse-glyph 4s infinite ease-in-out;
+}
+
+.musical-glyph .glyph-line {
+    width: 8px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+}
+
+.musical-glyph .glyph-line:first-child { transform-origin: bottom right; transform: rotate(-15deg); }
+.musical-glyph .glyph-line:last-child { transform-origin: bottom left; transform: rotate(15deg); }
+
+.start-experience-text {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+    margin-top: 30px;
+    transition: color 0.4s ease;
+}
+
+#start-experience-container:hover .start-experience-text {
+    color: #fff;
+}
+
+/* As linhas de cor que aparecem no hover */
+#start-experience-container::before,
+#start-experience-container::after {
+    content: '';
+    position: absolute;
+    top: 40%;
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #FFD700, #FF007F, #8A2BE2, transparent);
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#start-experience-container::before { left: 100%; transform-origin: left; }
+#start-experience-container::after { right: 100%; transform-origin: right; }
+
+#start-experience-container:hover::before,
+#start-experience-container:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+/* Animação de pulso para o glifo */
+@keyframes pulse-glyph {
+    0%, 100% { filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2)); }
+    50% { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5)); }
+}
+
+/* Classe para esconder o véu */
+#interaction-veil.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+/* ==================================================
+   === ESTILOS ESPECÍFICOS: ERA 1 - A FRATURA ===
+   ================================================== */
+
+/* Estilo base para os títulos (h2) na página da Era 1.
+   Usamos um ciano vibrante para dar uma identidade "cristalina" e "energética". */
+#era-1-page .era-text-block h2 {
+    color: #7afcff; /* Ciano vibrante, cor de cristal de energia */
+    text-shadow: 0 0 15px rgba(122, 252, 255, 0.7), 0 0 5px rgba(255, 255, 255, 0.8);
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+/* Efeito especial para o título do bloco "Cascata de Criação e Quebra".
+   Quando o mouse passar sobre este bloco, o título terá um efeito de tremor,
+   simulando a instabilidade do "Choque Fundamental". */
+#era-1-page .era-text-block[data-bg-image*="emergencia"]:hover h2 {
+    color: #ff4d4d; /* Um vermelho de alerta para o perigo da colisão */
+    text-shadow: 0 0 10px #ff4d4d;
+    animation: shake 0.5s infinite; /* Animação de tremor contínuo */
+}
+
+/* Animação de tremor (shake).
+   Move o elemento rapidamente para os lados. */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+    20%, 40%, 60%, 80% { transform: translateX(3px); }
+}
+
+/* Estilo para o link de "Voltar para a Linha do Tempo" na Era 1.
+   Mantém a consistência visual com a cor ciano da página. */
+#era-1-page .back-to-timeline a {
+    color: #7afcff;
+    border-color: #7afcff;
+}
+
+/* Efeito hover para o botão de "Voltar". */
+#era-1-page .back-to-timeline a:hover {
+    background-color: #7afcff;
+    color: #121212; /* Texto escuro para contraste */
+}
+
+/* Estilo para os links de lore dentro do texto da Era 1.
+   Usamos uma cor diferente (dourado) para indicar que é um link para
+   conhecimento, destacando-se do ciano da página. */
+#era-1-page .lore-link {
+    color: #FFD700; /* Dourado, para indicar conhecimento valioso */
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px dotted rgba(255, 215, 0, 0.6);
+    transition: color 0.3s, border-bottom-color 0.3s;
+}
+
+#era-1-page .lore-link:hover {
+    color: #fff;
+    border-bottom-color: rgba(255, 255, 255, 1);
+}

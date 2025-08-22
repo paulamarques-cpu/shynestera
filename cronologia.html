@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Tapeçaria do Tempo - Synesthéra</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Cabeçalho Padrão -->
+    <header class="main-header">
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="cronologia.html">As Eras</a>
+        <a href="forcas-cosmicas.html">Forças Primordiais</a>
+        <a href="panteao.html">Panteão</a>
+        <a href="conceitos.html">Conceitos</a>
+    </nav>
+</header>
+
+
+    <!-- Título da Página -->
+    <div class="page-title-header">
+        <h1>A Tapeçaria do Tempo</h1>
+        <p class="subtitle">Viaje pela história musical e sinestésica do cosmos.</p>
+    </div>
+
+    <!-- Container Principal da Linha do Tempo -->
+    <main class="timeline-wrapper">
+        <div class="timeline">
+            <!-- A Corda Melódica que muda de cor -->
+            <div class="melodic-cord"></div>
+
+            <!-- ERA 0 -->
+            <a href="eras/era-0.html" class="era-container-link">
+    <div class="era-container" id="era-0" data-era-color="#FFD700">
+        <div class="timeline-node"></div>
+        <div class="era-card">
+            <span class="era-number">Era 0</span>
+            <h2>Era da Melodia Primordial</h2>
+            <p>O início de tudo. Aiathaialur tece a primeira canção, mas exclui Khaanlur, plantando a semente da Dissonância.</p>
+        </div>
+    </div>
+</a>
+
+            <!-- ERA 1 -->
+            <a href="eras/era-1.html" class="era-container-link">
+    <div class="era-container" id="era-1" data-era-color="#8B0000" data-era-sound="sounds/era1.mp3">
+        <div class="timeline-node"></div>
+        <div class="era-card">
+            <div class="era-icon">🌱</div>
+            <span class="era-number">Era 1</span>
+            <h2>Era da Fratura</h2>
+            <p>O "Instante Eterno". Khaanlur força sua entrada, estilhaçando a melodia e dando origem aos Engendradores e aos Quartz Primordiais.</p>
+        </div>
+    </div>
+</a>
+
+            <!-- ERA 2 -->
+            <div class="era-container" id="era-2" data-era-color="#FF1493" data-era-sound="sounds/era2.mp3">
+                <div class="timeline-node"></div>
+                <div class="era-card">
+                    <span class="era-number">Era 2</span>
+                    <h2>Era dos Estouros Coloridos</h2>
+                    <p>O Despertar Numenínico. Nascem os Numeninis (N¹ ) e as primeiras harmonias cósmicas, como a dança de Alvor-aía e Noctua-thal.</p>
+                </div>
+            </div>
+            
+            <!-- Adicione mais eras aqui seguindo o mesmo padrão -->
+
+        </div>
+    </main>
+
+    <!-- Elementos de Áudio -->
+    <audio id="audio-player" loop></audio>
+
+    <footer>
+        <p>© 2025 - Synesthéra: O Pilar da Realidade — criado por Julíano Luís. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- O script principal do site -->
+    <script src="script.js"></script>
+</body>
+</html>

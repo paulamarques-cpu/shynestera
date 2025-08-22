@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Era 0: A Melodia Primordial - Synesthéra</title>
+    <link rel="stylesheet" href="../style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Jost:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- VÉU DE INTERAÇÃO (AGORA CORRETO ) -->
+    <div id="interaction-veil">
+    <!-- Canvas para o fundo de poeira estelar -->
+    <canvas id="veil-canvas"></canvas>
+    
+    <!-- Container para o glifo interativo -->
+    <div id="start-experience-container">
+        <div class="musical-glyph">
+            <div class="glyph-line"></div>
+            <div class="glyph-line"></div>
+        </div>
+        <span class="start-experience-text">Tocar a Primeira Nota</span>
+    </div>
+</div>
+
+    <!-- Header Padrão -->
+    <header class="main-header">
+        <nav>
+            <a href="../index.html">Início</a>
+            <a href="../cronologia.html" class="active">As Eras</a>
+            <a href="../forcas-cosmicas.html">Forças Primordiais</a>
+            <a href="../panteao.html">Panteão</a>
+            <a href="../conceitos.html">Conceitos</a>
+        </nav>
+    </header>
+
+    <!-- Container para o fundo que vai mudar -->
+    <div id="era-background-container"></div>
+
+    <!-- Conteúdo principal da página -->
+    <main class="era-detail-content">
+        <section class="era-narrative">
+            <div class="era-text-block" data-bg-image="../images/era0_vazio.jpg">
+                <span class="era-number-detail">Era 0</span>
+                <h1>A Melodia Primordial</h1>
+                <h2>O Que Existia Antes</h2>
+                <p>O estado anterior ao tempo e a qualquer forma de existência é conhecido como Silêncio Imemorial — um vazio absoluto e silencioso onde nem mesmo os conceitos de som ou cor significavam algo.</p>
+            </div>
+            <div class="era-text-block" data-bg-image="../images/era0_criacao.jpg">
+                <h2>O Evento Principal</h2>
+                <p>Aiathaialur, a Entidade Primordial, emerge desse silêncio profundo e começa a tecer a Melodia Primordial. Esta é a primeira canção do universo, contendo o projeto fundamental para toda a existência. Cada nota desta melodia carrega dentro de si infinitas possibilidades sensoriais. Ao ser entoada, ela não apenas cria som, mas simultaneamente gera luz, textura, sabor e aroma — estabelecendo os alicerces da experiência sinestésica.</p>
+            </div>
+            <div class="era-text-block" data-bg-image="../images/era0_tragedia_khaanlur.jpg">
+                <h2>A Primeira Tragédia</h2>
+                <p>Khaanlur, reconhecido como o Primeiro Ser Consciente, é aprisionado num exílio silencioso. Ele é excluído da Melodia Primordial por Aiathaialur, um ato que gera nele uma dor imensa e um desejo profundo e eterno por conexão.</p>
+            </div>
+            <div class="era-text-block" data-bg-image="../images/era0_panteao_inicial.jpg">
+                <h2>A Dissonância Semeada</h2>
+                <p>Esta exclusão planta a primeira semente da discórdia cósmica, criando a primeira dissonância na harmonia universal. O silêncio forçado de Khaanlur ecoa através das eras como um vazio sensorial que busca preenchimento, e o cosmos nunca mais seria o mesmo.</p>
+            </div>
+        </section>
+        <div class="back-to-timeline">
+            <a href="../cronologia.html">← Voltar para a Linha do Tempo</a>
+        </div>
+    </main>
+
+    <footer style="background-color: #1a1a1a; position: relative; z-index: 10;">
+        <p>© 2025 - Synesthéra: O Pilar da Realidade — criado por Julíano Luís. Todos os direitos reservados.</p>
+    </footer>
+
+    <audio src="../sounds/era0.mp3" id="page-audio" loop muted></audio>
+    <div id="music-control">🔇</div>
+    <script src="../script.js"></script>
+</body>
+</html>
